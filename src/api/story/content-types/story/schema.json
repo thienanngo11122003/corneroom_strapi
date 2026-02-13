@@ -16,15 +16,18 @@
       "required": true
     },
     "location": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "country_code": {
       "type": "string",
       "minLength": 2,
-      "maxLength": 2
+      "maxLength": 2,
+      "required": true
     },
     "content": {
-      "type": "blocks"
+      "type": "blocks",
+      "required": true
     },
     "image": {
       "type": "media",
@@ -33,7 +36,7 @@
         "images"
       ]
     },
-    "author_name": {
+    "author": {
       "type": "string"
     },
     "author_avatar": {

@@ -12,13 +12,18 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "location": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "country_code": {
-      "type": "string"
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 2,
+      "required": true
     },
     "content": {
       "type": "blocks"
@@ -26,21 +31,29 @@
     "image": {
       "type": "media",
       "multiple": true,
+      "required": true,
       "allowedTypes": [
         "images"
       ]
     },
-    "video_url": {
-      "type": "string"
-    },
-    "author_name": {
-      "type": "string"
+    "author": {
+      "type": "string",
+      "required": true
     },
     "author_avatar": {
       "type": "media",
       "multiple": true,
       "allowedTypes": [
         "images"
+      ]
+    },
+    "video_url": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "videos"
       ]
     }
   }

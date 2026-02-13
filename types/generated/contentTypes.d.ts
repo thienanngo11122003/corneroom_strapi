@@ -441,24 +441,30 @@ export interface ApiReelReel extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    author: Schema.Attribute.String & Schema.Attribute.Required;
     author_avatar: Schema.Attribute.Media<'images', true>;
-    author_name: Schema.Attribute.String;
     content: Schema.Attribute.Blocks;
-    country_code: Schema.Attribute.String;
+    country_code: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 2;
+        minLength: 2;
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    image: Schema.Attribute.Media<'images', true>;
+    image: Schema.Attribute.Media<'images', true> & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::reel.reel'> &
       Schema.Attribute.Private;
-    location: Schema.Attribute.String;
+    location: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    video_url: Schema.Attribute.String;
+    video_url: Schema.Attribute.Media<'images' | 'videos', true> &
+      Schema.Attribute.Required;
   };
 }
 
@@ -473,10 +479,11 @@ export interface ApiStoryStory extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    author: Schema.Attribute.String;
     author_avatar: Schema.Attribute.Media<'images', true>;
-    author_name: Schema.Attribute.String;
-    content: Schema.Attribute.Blocks;
+    content: Schema.Attribute.Blocks & Schema.Attribute.Required;
     country_code: Schema.Attribute.String &
+      Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 2;
         minLength: 2;
@@ -488,7 +495,7 @@ export interface ApiStoryStory extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::story.story'> &
       Schema.Attribute.Private;
-    location: Schema.Attribute.String;
+    location: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
