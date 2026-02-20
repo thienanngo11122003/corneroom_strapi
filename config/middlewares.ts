@@ -5,7 +5,20 @@ export default [
   'strapi::cors',
   'strapi::poweredBy',
   'strapi::query',
-  'strapi::body',
+
+  // Body parser with increased limits
+  {
+    name: 'strapi::body',
+    config: {
+      formLimit: '256mb',
+      jsonLimit: '256mb',
+      textLimit: '256mb',
+      formidable: {
+        maxFileSize: 250 * 1024 * 1024, // 250MB
+      },
+    },
+  },
+
   'strapi::session',
   'strapi::favicon',
   'strapi::public',
