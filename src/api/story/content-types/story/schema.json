@@ -11,9 +11,8 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
+    "author": {
+      "type": "string"
     },
     "location": {
       "type": "string",
@@ -25,26 +24,43 @@
       "maxLength": 2,
       "required": true
     },
-    "content": {
-      "type": "blocks",
+    "title": {
+      "type": "string",
       "required": true
     },
-    "image": {
-      "type": "media",
-      "multiple": true,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "author": {
+    "author_avatar": {
       "type": "string"
     },
-    "author_avatar": {
-      "type": "media",
-      "multiple": true,
-      "allowedTypes": [
-        "images"
-      ]
+    "content": {
+      "type": "text"
+    },
+    "image_url": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "json"
+    },
+    "trending": {
+      "type": "boolean"
+    },
+    "likes": {
+      "type": "integer"
+    },
+    "comments": {
+      "type": "integer"
+    },
+    "views": {
+      "type": "integer"
+    },
+    "public": {
+      "type": "boolean"
+    },
+    "priority": {
+      "type": "integer"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

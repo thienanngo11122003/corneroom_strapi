@@ -442,8 +442,9 @@ export interface ApiReelReel extends Struct.CollectionTypeSchema {
   };
   attributes: {
     author: Schema.Attribute.String & Schema.Attribute.Required;
-    author_avatar: Schema.Attribute.Media<'images', true>;
-    content: Schema.Attribute.Blocks;
+    author_avatar: Schema.Attribute.String;
+    comments: Schema.Attribute.Integer;
+    content: Schema.Attribute.Text;
     country_code: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
@@ -453,18 +454,24 @@ export interface ApiReelReel extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    image: Schema.Attribute.Media<'images', true> & Schema.Attribute.Required;
+    featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    image_url: Schema.Attribute.String;
+    likes: Schema.Attribute.Integer;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::reel.reel'> &
       Schema.Attribute.Private;
     location: Schema.Attribute.String & Schema.Attribute.Required;
+    priority: Schema.Attribute.Integer;
+    public: Schema.Attribute.Boolean;
     publishedAt: Schema.Attribute.DateTime;
+    tags: Schema.Attribute.JSON;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    trending: Schema.Attribute.Boolean;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    video_url: Schema.Attribute.Media<'images' | 'videos', true> &
-      Schema.Attribute.Required;
+    video_url: Schema.Attribute.String;
+    views: Schema.Attribute.Integer;
   };
 }
 
@@ -480,8 +487,9 @@ export interface ApiStoryStory extends Struct.CollectionTypeSchema {
   };
   attributes: {
     author: Schema.Attribute.String;
-    author_avatar: Schema.Attribute.Media<'images', true>;
-    content: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    author_avatar: Schema.Attribute.String;
+    comments: Schema.Attribute.Integer;
+    content: Schema.Attribute.Text;
     country_code: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
@@ -491,16 +499,23 @@ export interface ApiStoryStory extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    image: Schema.Attribute.Media<'images', true>;
+    featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    image_url: Schema.Attribute.String;
+    likes: Schema.Attribute.Integer;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::story.story'> &
       Schema.Attribute.Private;
     location: Schema.Attribute.String & Schema.Attribute.Required;
+    priority: Schema.Attribute.Integer;
+    public: Schema.Attribute.Boolean;
     publishedAt: Schema.Attribute.DateTime;
+    tags: Schema.Attribute.JSON;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    trending: Schema.Attribute.Boolean;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    views: Schema.Attribute.Integer;
   };
 }
 
