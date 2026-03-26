@@ -1,0 +1,14 @@
+{
+  "kind": "collectionType",
+  "collectionName": "oks",
+  "info": {
+    "singularName": "ok",
+    "pluralName": "oks",
+    "displayName": "ok"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}

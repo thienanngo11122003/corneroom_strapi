@@ -10,7 +10,7 @@ export default factories.createCoreController('api::story.story', ({ strapi }) =
       // createdAt is always defined for Strapi entries
       const createdAt = new Date(story.createdAt);
       const expiresAt = new Date(createdAt);
-      expiresAt.setDate(expiresAt.getDate() + 7);
+      expiresAt.setDate(expiresAt.getDate() + 30);
 
       return {
         ...story,
